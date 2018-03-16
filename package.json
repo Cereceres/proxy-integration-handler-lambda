@@ -1,0 +1,32 @@
+{
+  "name": "proxy-integration-handler-lambda",
+  "version": "1.0.0",
+  "description": "proxy integragion hadler to lambda",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cereceres/proxy-integration-handler-lambda.git"
+  },
+  "keywords": [
+    "proxy",
+    "integration",
+    "lambda"
+  ],
+  "author": "Jesus Cereceres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cereceres/proxy-integration-handler-lambda/issues"
+  },
+  "homepage": "https://github.com/Cereceres/proxy-integration-handler-lambda#readme",
+  "dependencies": {
+    "aws-lambda-testing": "^0.2.6",
+    "co": "^4.6.0"
+  }
+}
