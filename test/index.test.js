@@ -17,6 +17,7 @@ describe('test to index', () => {
             assert(ctx.body);
             assert(ctx.query);
             assert(ctx.method);
+            assert(ctx.end);
             assert(ctx.path !== undefined);
             assert(ctx.requestContext !== undefined);
             assert(ctx.stageVariables !== undefined);
@@ -243,6 +244,28 @@ describe('test to index', () => {
         assert(called);
         assert(response.statusCode === 302);
         assert(response.body === JSON.stringify('error'));
+        assert(called);
+    });
+
+    it('should pass a object context', async() => {
+        let called = false;
+        const response = await awsTest.setHandler(getHandler((ctx) => {
+            assert(ctx.headers);
+            assert(ctx.json);
+            assert(ctx.set);
+            assert(ctx.params);
+            assert(ctx.body);
+            assert(ctx.query);
+            assert(ctx.method);
+            assert(ctx.path !== undefined);
+            assert(ctx.requestContext !== undefined);
+            assert(ctx.stageVariables !== undefined);
+            called = true;
+            ctx.end('response');
+        })).exec({}).catch((error) => ({ error }));
+        assert(called);
+        assert(response.statusCode === 200);
+        assert(response.body === JSON.stringify('response'));
         assert(called);
     });
 });
