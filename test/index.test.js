@@ -51,7 +51,7 @@ describe('test to index', () => {
         })).exec({});
         assert(called);
         assert(response.statusCode === 302);
-        assert(response.body === JSON.stringify('body'));
+        assert(response.body === 'body');
         assert.deepEqual(response.headers, {
             a:'a'
         });
@@ -82,7 +82,7 @@ describe('test to index', () => {
         })).exec({});
         assert(called);
         assert(response.statusCode === 302);
-        assert(response.body === JSON.stringify('body'));
+        assert(response.body === 'body');
         assert.deepEqual(response.headers, {
             a:'a'
         });
@@ -113,7 +113,7 @@ describe('test to index', () => {
         })).exec({});
         assert(called);
         assert(response.statusCode === 302);
-        assert(response.body === JSON.stringify('body'));
+        assert(response.body === 'body');
         assert.deepEqual(response.headers, {
             a:'a',
             b:'b'
@@ -146,7 +146,7 @@ describe('test to index', () => {
         })).exec({});
         assert(called);
         assert(response.statusCode === 302);
-        assert(response.body === JSON.stringify('body'));
+        assert(response.body === 'body');
         assert.deepEqual(response.headers, {
             a:'a',
             b:'b'
@@ -199,7 +199,7 @@ describe('test to index', () => {
         })).exec({}).catch((error) => ({ error }));
         assert(called);
         assert(response.statusCode === 302);
-        assert(response.body === JSON.stringify('error'));
+        assert(response.body === 'error');
         assert(called);
     });
 
@@ -221,7 +221,7 @@ describe('test to index', () => {
         })).exec({}).catch((error) => ({ error }));
         assert(called);
         assert(response.statusCode === 302);
-        assert(response.body === JSON.stringify('error'));
+        assert(response.body === 'error');
         assert(called);
     });
 
@@ -243,7 +243,7 @@ describe('test to index', () => {
         })).exec({}).catch((error) => ({ error }));
         assert(called);
         assert(response.statusCode === 302);
-        assert(response.body === JSON.stringify('error'));
+        assert(response.body === 'error');
         assert(called);
     });
 
@@ -265,7 +265,7 @@ describe('test to index', () => {
         })).exec({}).catch((error) => ({ error }));
         assert(called);
         assert(response.statusCode === 200);
-        assert(response.body === JSON.stringify('response'));
+        assert(response.body === 'response');
         assert(called);
     });
 });

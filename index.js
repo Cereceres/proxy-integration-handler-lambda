@@ -32,10 +32,14 @@ module.exports = (handler) => (event, ctx, cb) => co(function *() {
         statusCode = defaultStatusCode,
         headers: headersResponse = {}
     } = response;
-    cb(null, { body: JSON.stringify(bodyResponse), statusCode, headers: headersResponse });
+    cb(null, {
+        body: typeof bodyResponse === 'string' ? bodyResponse : JSON.stringify(bodyResponse),
+        statusCode,
+        headers: headersResponse
+    });
 })
     .catch(({ message = '', body = message, statusCode = defaultStatusCode, headers = {} }) => cb(null, {
-        body:JSON.stringify(body),
+        body: typeof body === 'string' ? body : JSON.stringify(body),
         statusCode,
         headers
     }));
