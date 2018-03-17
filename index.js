@@ -34,11 +34,8 @@ module.exports = (handler) => (event, ctx, cb) => co(function *() {
     } = response;
     cb(null, { body: JSON.stringify(bodyResponse), statusCode, headers: headersResponse });
 })
-    .catch(({ message = '', body = message, statusCode = defaultStatusCode, headers = {}, stack }) => {
-        console.log('stack ', stack);
-        cb(null, {
-            body:JSON.stringify(body),
-            statusCode,
-            headers
-        });
-    });
+    .catch(({ message = '', body = message, statusCode = defaultStatusCode, headers = {} }) => cb(null, {
+        body:JSON.stringify(body),
+        statusCode,
+        headers
+    }));
