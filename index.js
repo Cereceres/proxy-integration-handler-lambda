@@ -26,7 +26,8 @@ module.exports = (handler) => (event, ctx, cb) => co(function *() {
         requestContext,
         stageVariables
     };
-    const response = yield execHandler(handler, paramsToExecHandler);
+    Object.assign(ctx, paramsToExecHandler);
+    const response = yield execHandler(handler, ctx);
     const {
         body: bodyResponse = '',
         statusCode = defaultStatusCode,
@@ -37,7 +38,7 @@ module.exports = (handler) => (event, ctx, cb) => co(function *() {
         statusCode,
         headers: headersResponse
     });
- })
+})
     .catch(({ stack, message = stack, body = message, statusCode = defaultStatusCode, headers = {} }) => cb(null, {
         body: typeof body === 'string' ? body : JSON.stringify(body),
         statusCode,
