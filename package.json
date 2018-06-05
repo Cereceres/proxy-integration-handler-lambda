@@ -1,6 +1,6 @@
 {
   "name": "proxy-integration-handler-lambda",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "proxy integragion hadler to lambda",
   "main": "index.js",
   "directories": {

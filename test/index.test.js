@@ -10,7 +10,6 @@ describe('test to index', () => {
     it('should pass a object context', async() => {
         let called = false;
         const res = await awsTest.setHandler(getHandler((ctx) => {
-            console.log('ctx ', ctx);
             assert(ctx.headers);
             assert(ctx.json);
             assert(ctx.set);
@@ -25,7 +24,6 @@ describe('test to index', () => {
             called = true;
             return Promise.resolve();
         })).exec({});
-        console.log('res ', res);
         assert(called);
     });
 
